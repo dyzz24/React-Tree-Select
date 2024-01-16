@@ -1,10 +1,10 @@
 import React from 'react';
 import { type State } from '../reducer/state.ts';
-import { type Actions } from '../reducer/actions.ts';
+import { type ReducerAction } from '../reducer/reducer.ts';
 
 /** Creates new React.Context in passed generik type */
 export const createGenericContext = <T, >() => {
-  const genericContext = React.createContext<T | undefined>(undefined);
+  const genericContext = React.createContext<T>({} as unknown as T);
   const useGenericContext = () => {
     const contextIsDefined = React.useContext(genericContext);
     return contextIsDefined;
@@ -16,4 +16,4 @@ export const createGenericContext = <T, >() => {
 export const [
   useTreeSelectContext,
   TreeSelectProvider
-] = createGenericContext<{ state: State, dispatch: React.Dispatch<Actions | Actions[]> } | null>();
+] = createGenericContext<{ state: State, dispatch: React.Dispatch<ReducerAction | ReducerAction[]> }>();

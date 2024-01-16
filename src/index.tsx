@@ -10,18 +10,18 @@ const mockTree: TreeSelectItems[] = [{
   children: [
     {
       id: '1.1',
-      alias: 'child1',
-      label: 'Child Node 1',
+      alias: 'child11',
+      label: 'Child Node 11',
       children: [
         {
-          id: '1.2',
+          id: '1.1.1',
           alias: 'chil11',
           label: 'Child Node 11',
           children: [
             {
-              id: '1.3',
-              alias: 'child3',
-              label: 'Child Node 3',
+              id: '1.1.2',
+              alias: 'child12',
+              label: 'Child Node 122',
               children: null
             },
             {
@@ -49,5 +49,9 @@ const mockProps: TreeSelectProps = {
 
 // eslint-disable-next-line react/no-deprecated
 ReactDOM.render(<React.StrictMode>
-    <App items={mockProps.items}/>
+    <>
+        <div id="test"></div>
+        <App items={mockProps.items} targetId={'test'} selectedIds={['1.2']}/>
+
+    </>
 </React.StrictMode>, document.getElementById('root'))
