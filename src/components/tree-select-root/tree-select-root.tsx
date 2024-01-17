@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
-import { useTreeSelectContext } from '../../context/context.tsx';
 
 import styles from './tree-select-root.module.pcss';
-import { Actions } from '../../reducer';
+
 import { type onChangeCallback } from '../../types/treeSelectProps.ts';
+
+import { Actions } from '@reducer/actions.ts';
+import { useTreeSelectContext } from '@reducer/index.ts';
 import { TreeNode } from '@components/tree-node/tree-node.tsx';
 
 export const TreeSelectRoot: React.FC<{ onChange: onChangeCallback }> = ({ onChange }) => {

@@ -10,8 +10,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@utils': resolve(__dirname, './src/utils/'),
-      '@components': resolve(__dirname, './src/components/')
-
+      '@components': resolve(__dirname, './src/components/'),
+      '@reducer': resolve(__dirname, './src/reducer/')
     }
   },
   build: {

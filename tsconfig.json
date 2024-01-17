@@ -6,6 +6,9 @@
       ],
       "@components/*": [
         "./src/components/*"
+      ],
+      "@reducer/*": [
+        "./src/reducer/*"
       ]
     },
     "module": "esnext",

@@ -1,8 +1,9 @@
 import { type TreeSelectItems } from '../../../types/treeSelectProps.ts';
-import { useTreeSelectContext } from '../../../context/context.tsx';
-import { Actions } from '../../../reducer/actions.ts';
+
+import { Actions } from '@reducer/actions.ts';
 import React from 'react';
 import styles from './expander.module.pcss';
+import { useTreeSelectContext } from '@reducer/index.ts';
 
 type Props = {
   node: TreeSelectItems
