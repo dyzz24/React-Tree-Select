@@ -1,16 +1,14 @@
 import React, { useEffect, useLayoutEffect, useReducer, useState } from 'react'
-import { TreeSelectProvider } from './context/context.tsx';
+
 import { type TreeSelectProps } from './types/treeSelectProps.ts';
-import { TreeSelectRoot } from './components/tree-select-root/tree-select-root.tsx';
-import { reducer } from './reducer/reducer.ts';
+
+import { Actions, initialState, reducer, TreeSelectProvider } from './reducer';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
-import styles from './App.module.pcss';
-import { initialState } from './reducer/state.ts';
-import { Actions } from './reducer/actions.ts';
-import { prepareTree } from './utils/utils.ts';
+import { prepareTree } from '@utils/utils.ts';
+import { TreeSelectRoot } from '@components/tree-select-root/tree-select-root.tsx';
 
-const App: React.FC<TreeSelectProps> = (props) => {
+const ReactTreeSelect: React.FC<TreeSelectProps> = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
@@ -44,7 +42,7 @@ const App: React.FC<TreeSelectProps> = (props) => {
 
   if (node) {
     return ReactDOM.createPortal(
-            <div className={classNames(props.className, styles.container)}>
+            <div className={classNames(props.className)}>
                 <TreeSelectProvider value={{ state, dispatch }}>
                     <TreeSelectRoot onChange={props.onChange}/>
                 </TreeSelectProvider>
@@ -53,4 +51,4 @@ const App: React.FC<TreeSelectProps> = (props) => {
     );
   } else return null;
 }
-export default App
+export default ReactTreeSelect

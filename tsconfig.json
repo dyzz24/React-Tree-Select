@@ -1,5 +1,13 @@
 {
   "compilerOptions": {
+    "paths": {
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ]
+    },
     "module": "esnext",
     "target": "ESNext",
     "moduleResolution": "Node",

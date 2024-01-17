@@ -1,6 +1,6 @@
 import { Actions } from './actions.ts';
 import { type State } from './state.ts';
-import { editTreeItems } from '../utils/utils.ts';
+import { editTreeItems } from '@utils/utils.ts';
 import { type TreeItemValues } from '../types/treeSelectProps.ts';
 
 export interface ReducerAction {

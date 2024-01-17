@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App.tsx'
+import ReactTreeSelect from './ReactTreeSelect.tsx'
 import type { TreeSelectItems, TreeSelectProps } from './types/treeSelectProps.ts';
 
 const mockTree: TreeSelectItems[] = [{
@@ -67,7 +67,7 @@ const mockProps: TreeSelectProps = {
 ReactDOM.render(<React.StrictMode>
     <>
         <div id="test"></div>
-        <App {...mockProps} targetId={'test'}/>
+        <ReactTreeSelect {...mockProps} targetId={'test'}/>
 
     </>
 </React.StrictMode>, document.getElementById('root'))

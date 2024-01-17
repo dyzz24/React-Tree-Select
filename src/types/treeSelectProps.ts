@@ -8,11 +8,6 @@ export interface TreeSelectProps {
 
 export type onChangeCallback = (args: { selectedIds: string[], updatedTree: TreeSelectItems[] }) => void
 
-export interface Actions {
-  EXPAND: 'EXPAND'
-  SELECT: 'SELECT'
-}
-
 export type TreeSelectItems = {
   id: string
   alias: string
