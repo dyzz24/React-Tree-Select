@@ -4,13 +4,14 @@ import { TreeNode } from '../tree-node/tree-node.tsx';
 
 import styles from './tree-select-root.module.pcss';
 import { Actions } from '../../reducer/actions.ts';
+import { type onChangeCallback } from '../../types/treeSelectProps.ts';
 
-export const TreeSelectRoot = () => {
+export const TreeSelectRoot: React.FC<{ onChange: onChangeCallback }> = ({ onChange }) => {
   const { state } = useTreeSelectContext();
 
   useEffect(() => {
     if (state.lastAction === Actions.SELECT || state.lastAction === Actions.UNSELECT) {
-      console.log(state)
+      onChange({ selectedIds: state.selectedIds, updatedTree: state.tree });
     }
   }, [state]);
 

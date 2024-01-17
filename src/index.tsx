@@ -41,17 +41,33 @@ const mockTree: TreeSelectItems[] = [{
       children: []
     }
   ]
+}, {
+  id: '2',
+  alias: 'child2',
+  label: 'Child Node 2',
+  selected: true,
+  expanded: true,
+  children: [{
+    id: '2.1',
+    alias: 'child2',
+    label: 'Child Node 2.1',
+    children: []
+  }]
 }];
 
 const mockProps: TreeSelectProps = {
-  tree: mockTree
+  tree: mockTree,
+  onChange: (el) => {
+    console.log(el);
+  },
+  selectedIds: ['1.2']
 }
 
 // eslint-disable-next-line react/no-deprecated
 ReactDOM.render(<React.StrictMode>
     <>
         <div id="test"></div>
-        <App tree={mockProps.tree} targetId={'test'} selectedIds={['1.2']}/>
+        <App {...mockProps} targetId={'test'}/>
 
     </>
 </React.StrictMode>, document.getElementById('root'))

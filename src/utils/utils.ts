@@ -1,13 +1,9 @@
 import type { TreeItemKeys, TreeItemValues, TreeSelectItems } from '../types/treeSelectProps.ts';
 
 export const editTreeItems = (data: TreeSelectItems[], targetId: string, key: TreeItemKeys, value: TreeItemValues) => {
-  const newArray = [...data];
-  newArray.map((item) => {
+  return data.map((item) => {
     if (item.id === targetId) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
-      item[key] = value;
-      return item;
+      return { ...item, [key]: value }
     }
 
     if (item?.children?.length) {
@@ -16,7 +12,6 @@ export const editTreeItems = (data: TreeSelectItems[], targetId: string, key: Tr
 
     return item;
   });
-  return newArray;
 };
 
 export const prepareTree = (data: TreeSelectItems[], selectedIds?: string[]) => {

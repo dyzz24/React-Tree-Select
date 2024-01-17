@@ -46,7 +46,7 @@ export const reducer = (state: State, data: ReducerAction | ReducerAction[]) => 
         throw new Error('Unsupported action ');
     }
   });
-  console.log(' v modifiedState ', modifiedState)
+
   return {
     ...state,
     ...modifiedState

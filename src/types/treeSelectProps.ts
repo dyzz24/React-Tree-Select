@@ -1,10 +1,12 @@
 export interface TreeSelectProps {
   tree: TreeSelectItems[] | [] // Array of items to display
   selectedIds?: string[] // Array of selected item ids
-  onChange?: () => ({ selectedIds: string[], updatedTree: TreeSelectItems }) // Callback function to handle changes
+  onChange: onChangeCallback // Callback function to handle changes
   className?: string // Class name to be applied to the component
-  targetId?: string // Id of the target element to be used for positioning portal
+  targetId?: string // id of the target element to be used for positioning portal
 }
+
+export type onChangeCallback = (args: { selectedIds: string[], updatedTree: TreeSelectItems[] }) => void
 
 export interface Actions {
   EXPAND: 'EXPAND'

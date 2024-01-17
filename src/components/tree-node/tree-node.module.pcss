@@ -1,12 +1,8 @@
 .container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-
     box-sizing: border-box;
     margin: 8px 0 0 14px;
-
 }
 
 .expander {
@@ -25,14 +21,13 @@
     display: flex;
     align-items: center;
     width: 100%;
-
     position: relative;
 
     &:before {
         content: '';
         width: 100%;
         height: 1px;
-        background-color: red;
+        background-color: #747bff;
         right: calc(100% + 4px);
         position: absolute;
     }
@@ -44,7 +39,17 @@
     cursor: pointer;
     user-select: none;
 
+
     input {
         margin: 0 4px 0 6px;
+    }
+
+    &.active {
+        background-color: rgba(121, 255, 100, 0.2);
+        border-radius: 2px;
+    }
+
+    &.hasChildren {
+        color: #747bff;
     }
 }
