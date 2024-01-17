@@ -8,6 +8,8 @@ import classNames from 'classnames';
 import { prepareTree } from '@utils/utils.ts';
 import { TreeSelectRoot } from '@components/tree-select-root/tree-select-root.tsx';
 
+import styles from './ReactTreeSelect.module.pcss';
+
 const ReactTreeSelect: React.FC<TreeSelectProps> = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -26,7 +28,7 @@ const ReactTreeSelect: React.FC<TreeSelectProps> = (props) => {
   const [node, setNode] = useState<Element | null>(null);
 
   const createContainer = () => {
-    const target = props.targetId ?? 'tree-select-container';
+    const target = props.targetDOMId ?? 'tree-select-container';
     const node = document.getElementById(target);
     if (!node) {
       const containerDomNode = document.createElement('div') as Element;
@@ -42,7 +44,7 @@ const ReactTreeSelect: React.FC<TreeSelectProps> = (props) => {
 
   if (node) {
     return ReactDOM.createPortal(
-            <div className={classNames(props.className)}>
+            <div className={classNames(styles.main, props.className)}>
                 <TreeSelectProvider value={{ state, dispatch }}>
                     <TreeSelectRoot onChange={props.onChange}/>
                 </TreeSelectProvider>

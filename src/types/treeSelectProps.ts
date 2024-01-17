@@ -3,7 +3,7 @@ export interface TreeSelectProps {
   selectedIds?: string[] // Array of selected item ids
   onChange: onChangeCallback // Callback function to handle changes
   className?: string // Class name to be applied to the component
-  targetId?: string // id of the target element to be used for positioning portal
+  targetDOMId?: string // id of the target element to be used for positioning portal
 }
 
 export type onChangeCallback = (args: { selectedIds: string[], updatedTree: TreeSelectItems[] }) => void
@@ -15,6 +15,7 @@ export type TreeSelectItems = {
   children: TreeSelectItems[] | null
   expanded?: boolean
   selected?: boolean
+  filtered?: boolean
 }
 
 export type TreeItemKeys = keyof TreeSelectItems;

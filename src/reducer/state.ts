@@ -6,11 +6,13 @@ export interface State {
   selectedIds: string[]
   lastAction: Actions | null
   isInit: boolean
+  isSearchMode?: boolean
 }
 
 export const initialState: State = {
   tree: [],
   selectedIds: [],
   lastAction: null,
-  isInit: false
+  isInit: false,
+  isSearchMode: false
 }

@@ -3,5 +3,7 @@ export enum Actions {
   EXPAND = 'EXPAND',
   SELECT = 'SELECT',
   UNSELECT = 'UNSELECT',
-  INIT = 'INIT'
+  INIT = 'INIT',
+  SET_SEARCH_MODE = 'SET_SEARCH_MODE',
+  SET_TREE = 'SET_TREE',
 }

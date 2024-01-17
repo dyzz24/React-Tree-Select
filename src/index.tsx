@@ -16,7 +16,7 @@ const mockTree: TreeSelectItems[] = [{
         {
           id: '1.1.1',
           alias: 'chil11',
-          label: 'Child Node 1.1.1',
+          label: 'Potato',
           children: [
             {
               id: '1.1.1.1',
@@ -44,13 +44,13 @@ const mockTree: TreeSelectItems[] = [{
 }, {
   id: '2',
   alias: 'child2',
-  label: 'Child Node 2',
+  label: 'test',
   selected: true,
   expanded: true,
   children: [{
     id: '2.1',
     alias: 'child2',
-    label: 'Child Node 2.1',
+    label: 'test2',
     children: []
   }]
 }];
@@ -67,7 +67,7 @@ const mockProps: TreeSelectProps = {
 ReactDOM.render(<React.StrictMode>
     <>
         <div id="test"></div>
-        <ReactTreeSelect {...mockProps} targetId={'test'}/>
+        <ReactTreeSelect {...mockProps} targetDOMId={'test'}/>
 
     </>
 </React.StrictMode>, document.getElementById('root'))

@@ -1,7 +1,7 @@
 import { Actions } from './actions.ts';
 import { type State } from './state.ts';
 import { editTreeItems } from '@utils/utils.ts';
-import { type TreeItemValues } from '../types/treeSelectProps.ts';
+import { type TreeItemValues, type TreeSelectItems } from '../types/treeSelectProps.ts';
 
 export interface ReducerAction {
   type: Actions
@@ -33,6 +33,20 @@ export const reducer = (state: State, data: ReducerAction | ReducerAction[]) => 
             ? [...state.selectedIds, actionData.id]
             : state.selectedIds.filter((id) => id !== actionData.id),
           lastAction: actionData.value ? Actions.SELECT : Actions.UNSELECT
+        };
+        break;
+
+      case Actions.SET_SEARCH_MODE:
+        modifiedState = {
+          ...modifiedState,
+          isSearchMode: actionData.value as boolean
+        };
+        break;
+
+      case Actions.SET_TREE:
+        modifiedState = {
+          ...modifiedState,
+          tree: actionData.value as TreeSelectItems[]
         };
         break;
 

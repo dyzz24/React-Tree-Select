@@ -11,13 +11,13 @@ type Props = {
   hasChildren: boolean
 }
 export const Label: React.FC<Props> = ({ node, hasChildren }) => {
-  const { dispatch } = useTreeSelectContext();
+  const { dispatch, state } = useTreeSelectContext();
 
   const onSelectHandler = () => {
     dispatch({ type: Actions.SELECT, id: node.id, value: !node.selected });
   }
 
   return <label className={classNames(styles.label, node.selected && styles.active,
-    hasChildren && styles.hasChildren
+    hasChildren && styles.hasChildren, state.isSearchMode && node.filtered && styles.target
   )}><input type={'checkbox'} checked={node.selected} onChange={onSelectHandler}/>{node.label}</label>
 }

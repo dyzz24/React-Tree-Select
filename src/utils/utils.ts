@@ -32,3 +32,41 @@ export const prepareTree = (data: TreeSelectItems[], selectedIds?: string[]) => 
   });
   return newArray;
 }
+
+export const searchTreeItem = (tree: TreeSelectItems[], searchStr: string) => {
+  return tree.map(item => {
+    const deepLevel = checkFilteredDeeps(item?.children || [], searchStr, false);
+
+    if (deepLevel) {
+      item.expanded = true
+    } else item.expanded = false
+
+    if (item.label.toLowerCase().includes(searchStr.toLowerCase())) {
+      item.filtered = true
+    } else {
+      item.filtered = false
+    }
+
+    if (item?.children?.length) {
+      item.children = [...searchTreeItem(item.children, searchStr)];
+    }
+
+    return item;
+  })
+}
+
+export const checkFilteredDeeps = (tree: TreeSelectItems[], searchStr: string, target: boolean): boolean => {
+  let hasDeepTarget = target;
+
+  for (let i = 0; i < tree.length; i++) {
+    const isMatch = tree[i].label.toLowerCase().includes(searchStr.toLowerCase());
+    if (isMatch) {
+      hasDeepTarget = true
+      break
+    } else if (!isMatch && tree[i]?.children?.length) {
+      return checkFilteredDeeps(tree[i].children!, searchStr, false);
+    }
+  }
+
+  return hasDeepTarget;
+};

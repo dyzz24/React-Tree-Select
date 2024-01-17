@@ -5,15 +5,18 @@ import styles from './tree-node.module.pcss';
 
 import { Label } from '@components/tree-node/label/label.tsx';
 import { Expander } from '@components/tree-node/expander/expander.tsx';
+import { useTreeSelectContext } from '@reducer/index.ts';
 
 export const TreeNode: React.FC<{ node: TreeSelectItems }> = ({ node }) => {
-  // const { dispatch } = useTreeSelectContext();
+  const { state } = useTreeSelectContext();
 
   const hasChildren = node?.children && node?.children?.length > 0;
 
+  if (state.isSearchMode && (!node.filtered && !node.expanded)) return null;
+
   return <div className={styles.container}>
         <div className={styles.title}>
-            <Expander node={node} hasChildren={!!hasChildren}/>
+            {!state.isSearchMode && <Expander node={node} hasChildren={!!hasChildren}/>}
             <Label node={node} hasChildren={!!hasChildren}/>
         </div>
         {node?.expanded && node?.children?.map((child) =>
