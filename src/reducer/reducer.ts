@@ -7,6 +7,7 @@ export interface ReducerAction {
   type: Actions
   id: string
   value: TreeItemValues
+  initState?: State
 }
 
 export const reducer = (state: State, data: ReducerAction | ReducerAction[]) => {
@@ -19,18 +20,25 @@ export const reducer = (state: State, data: ReducerAction | ReducerAction[]) => 
       case Actions.EXPAND:
         modifiedState = {
           ...modifiedState,
-          items: editTreeItems(state.items, actionData.id, 'expanded', actionData.value)
+          tree: editTreeItems(state.tree, actionData.id, 'expanded', actionData.value),
+          lastAction: Actions.EXPAND
         };
         break;
 
       case Actions.SELECT:
         modifiedState = {
           ...modifiedState,
-          items: editTreeItems(state.items, actionData.id, 'selected', actionData.value),
+          tree: editTreeItems(state.tree, actionData.id, 'selected', actionData.value),
           selectedIds: actionData.value
             ? [...state.selectedIds, actionData.id]
             : state.selectedIds.filter((id) => id !== actionData.id),
-          lastAction: Actions.SELECT
+          lastAction: actionData.value ? Actions.SELECT : Actions.UNSELECT
+        };
+        break;
+
+      case Actions.INIT:
+        modifiedState = {
+          ...actionData.initState
         };
         break;
 
@@ -38,7 +46,7 @@ export const reducer = (state: State, data: ReducerAction | ReducerAction[]) => 
         throw new Error('Unsupported action ');
     }
   });
-
+  console.log(' v modifiedState ', modifiedState)
   return {
     ...state,
     ...modifiedState

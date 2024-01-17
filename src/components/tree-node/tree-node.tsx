@@ -7,7 +7,7 @@ import { Actions } from '../../reducer/actions.ts';
 
 export const TreeNode: React.FC<{ node: TreeSelectItems }> = ({ node }) => {
   const { state, dispatch } = useTreeSelectContext();
-
+  console.log('node ', node)
   const hasChildren = node?.children && node?.children?.length > 0;
 
   const onExpandHandler = () => {

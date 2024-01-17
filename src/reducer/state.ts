@@ -2,13 +2,15 @@ import { type TreeSelectItems } from '../types/treeSelectProps.ts';
 import { type Actions } from './actions.ts';
 
 export interface State {
-  items: TreeSelectItems[]
+  tree: TreeSelectItems[]
   selectedIds: string[]
   lastAction: Actions | null
+  isInit: boolean
 }
 
 export const initialState: State = {
-  items: [],
+  tree: [],
   selectedIds: [],
-  lastAction: null
+  lastAction: null,
+  isInit: false
 }

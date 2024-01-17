@@ -9,12 +9,10 @@ export const TreeSelectRoot = () => {
   const { state } = useTreeSelectContext();
 
   useEffect(() => {
-    console.log(state)
-    if (state.lastAction === Actions.SELECT) {
-
+    if (state.lastAction === Actions.SELECT || state.lastAction === Actions.UNSELECT) {
+      console.log(state)
     }
-  }, [state.lastAction]);
+  }, [state]);
 
-  console.log(state)
-  return <div className={styles.rootContainer}>{state?.items.map(el => <TreeNode node={el} key={el.id}/>)}</div>
+  return <div className={styles.rootContainer}>{state?.tree.map(el => <TreeNode node={el} key={el.id}/>)}</div>
 }

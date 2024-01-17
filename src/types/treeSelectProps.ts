@@ -1,5 +1,5 @@
 export interface TreeSelectProps {
-  items: TreeSelectItems[] | [] // Array of items to display
+  tree: TreeSelectItems[] | [] // Array of items to display
   selectedIds?: string[] // Array of selected item ids
   onChange?: () => ({ selectedIds: string[], updatedTree: TreeSelectItems }) // Callback function to handle changes
   className?: string // Class name to be applied to the component
