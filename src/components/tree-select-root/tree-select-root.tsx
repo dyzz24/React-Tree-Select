@@ -42,7 +42,6 @@ export const TreeSelectRoot: React.FC<{ onChange: onChangeCallback }> = ({ onCha
         }}/>
         <div className={styles.treeRender}>
             {state?.tree.map(el => <TreeNode node={el} key={el.id}/>)}
-
         </div>
     </div>
 }

@@ -1,32 +1,27 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import ReactTreeSelect from './ReactTreeSelect.tsx'
+import ReactTreeSelect from './react-tree-select.tsx'
 import type { TreeSelectItems, TreeSelectProps } from './types/treeSelectProps.ts';
 
 const mockTree: TreeSelectItems[] = [{
   id: '1',
-  alias: 'root',
-  label: 'Root Node',
+  label: 'Root Node for checking',
   children: [
     {
       id: '1.1',
-      alias: 'child1.1',
       label: 'Child Node 1.1',
       children: [
         {
           id: '1.1.1',
-          alias: 'chil11',
           label: 'Potato',
           children: [
             {
               id: '1.1.1.1',
-              alias: 'child12',
-              label: 'Child Node 1.1.1.1',
+              label: 'Child Node with long name there',
               children: null
             },
             {
               id: '1.1.1.2',
-              alias: 'child4',
               label: 'Child Node 1.1.1.2',
               children: null
             }
@@ -36,20 +31,16 @@ const mockTree: TreeSelectItems[] = [{
     },
     {
       id: '1.2',
-      alias: 'child2',
       label: 'Child Node 1.2',
       children: []
     }
   ]
 }, {
   id: '2',
-  alias: 'child2',
   label: 'test',
-  selected: true,
   expanded: true,
   children: [{
     id: '2.1',
-    alias: 'child2',
     label: 'test2',
     children: []
   }]

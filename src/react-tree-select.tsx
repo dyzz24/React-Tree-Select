@@ -8,7 +8,7 @@ import classNames from 'classnames';
 import { prepareTree } from '@utils/utils.ts';
 import { TreeSelectRoot } from '@components/tree-select-root/tree-select-root.tsx';
 
-import styles from './ReactTreeSelect.module.pcss';
+import styles from './react-tree-select.module.pcss';
 
 const ReactTreeSelect: React.FC<TreeSelectProps> = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState);

@@ -10,7 +10,6 @@ export type onChangeCallback = (args: { selectedIds: string[], updatedTree: Tree
 
 export type TreeSelectItems = {
   id: string
-  alias: string
   label: string
   children: TreeSelectItems[] | null
   expanded?: boolean
