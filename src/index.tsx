@@ -18,7 +18,35 @@ const mockTree: TreeSelectItems[] = [{
             {
               id: '1.1.1.1',
               label: 'Child Node with long name there',
-              children: null
+              children: [
+                {
+                  id: '1.3',
+                  label: 'Child Node 1.3',
+                  children: [
+                    {
+                      id: '1.1.1.3',
+                      label: 'Potato',
+                      children: [
+                        {
+                          id: '1.1.1.1.4',
+                          label: 'Child Node with long name there',
+                          children: null
+                        },
+                        {
+                          id: '1.1.1.2.1',
+                          label: 'Child Node 1.1.1.2',
+                          children: null
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  id: '1.2',
+                  label: 'Child Node 1.2',
+                  children: []
+                }
+              ]
             },
             {
               id: '1.1.1.2',

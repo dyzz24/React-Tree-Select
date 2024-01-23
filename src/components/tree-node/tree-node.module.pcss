@@ -4,27 +4,39 @@
     box-sizing: border-box;
     padding: 8px 0 0 14px;
     position: relative;
+    justify-content: center;
+
+    &.empty {
+        &:after {
+            width: 22px;
+        }
+    }
 
 
     &:before {
         content: "";
-        height: 100%;
+        height: calc(100% - 8px);
         border-left: 1px solid #ccc;
         position: absolute;
         left: 0;
+        top: 16px;
+        border-radius: 10px 0 10px;
+        width: 10px;
+        transition: border 0.5s;
     }
 
     &:first-child:before {
         width: 10px;
-        height: 100%;
         top: 16px;
         border-radius: 10px 0 0 0;
     }
 
+
     &:last-child:before {
         width: 10px;
-        height: 14px;
-        border-radius: 0 0 0 10px;
+        height: 22px;
+        border-radius: 0px 0 0 20px;
+        top: 0;
     }
 
     &:after {
@@ -35,6 +47,8 @@
         position: absolute;
         left: 0;
         top: 16px;
+        border-radius: 10px 0px 10px 0px;
+        height: 20px;
     }
 
     &:first-child:after {
@@ -45,10 +59,9 @@
     &:last-child:after {
         height: 10px;
         border-top: none;
-        transition: border 0.5s;
         border-bottom: 1px solid #ccc;
         border-radius: 0 0 0 10px;
-        margin-top: -4px;
+        margin-top: -5px;
     }
 }
 
