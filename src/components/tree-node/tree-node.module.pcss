@@ -8,19 +8,19 @@
 
     &.empty {
         &:after {
-            width: 22px;
+            width: 25px;
         }
     }
 
 
     &:before {
         content: "";
-        height: calc(100% - 8px);
+        height: 100%;
         border-left: 1px solid #ccc;
         position: absolute;
         left: 0;
         top: 16px;
-        border-radius: 10px 0 10px;
+
         width: 10px;
         transition: border 0.5s;
     }
@@ -28,40 +28,53 @@
     &:first-child:before {
         width: 10px;
         top: 16px;
-        border-radius: 10px 0 0 0;
+
     }
 
 
     &:last-child:before {
         width: 10px;
-        height: 22px;
-        border-radius: 0px 0 0 20px;
+        height: 18px;
         top: 0;
     }
 
     &:after {
         content: "";
-        width: 12px;
+        width: 14px;
         transition: border 0.5s;
         border-top: 1px solid #ccc;
         position: absolute;
         left: 0;
         top: 16px;
-        border-radius: 10px 0px 10px 0px;
+
         height: 20px;
     }
 
     &:first-child:after {
         height: 10px;
-        border-radius: 10px 0 0 0;
+
     }
 
     &:last-child:after {
         height: 10px;
         border-top: none;
         border-bottom: 1px solid #ccc;
-        border-radius: 0 0 0 10px;
-        margin-top: -5px;
+
+        margin-top: -8px;
+    }
+
+    & .title:not(:only-child) {
+
+        &:before {
+            content: "";
+            height: calc(100% + 6px);
+            border-left: 1px solid #ccc;
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            transition: border 0.5s;
+        }
     }
 }
 
@@ -69,4 +82,5 @@
     display: flex;
     align-items: center;
     width: 100%;
+    position: relative;
 }

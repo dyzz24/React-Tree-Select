@@ -12,7 +12,6 @@ export const TreeNode: React.FC<{ node: TreeSelectItems }> = ({ node }) => {
   const { state } = useTreeSelectContext();
 
   const hasChildren = node?.children && node?.children?.length > 0;
-
   if (state.isSearchMode && (!node.filtered && !node.expanded)) return null;
 
   return <div className={classNames(styles.container, !hasChildren && styles.empty)}>

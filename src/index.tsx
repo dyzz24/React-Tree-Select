@@ -4,53 +4,53 @@ import ReactTreeSelect from './react-tree-select.tsx'
 import type { TreeSelectItems, TreeSelectProps } from './types/treeSelectProps.ts';
 
 const mockTree: TreeSelectItems[] = [{
-  id: '1',
-  label: 'Root Node for checking',
+  id: 'world',
+  label: 'World',
   children: [
     {
-      id: '1.1',
-      label: 'Child Node 1.1',
+      id: 'continent-1',
+      label: 'Continent: Asia',
+      expanded: true,
       children: [
         {
-          id: '1.1.1',
-          label: 'Potato',
+          id: 'country-1-1',
+          label: 'Country: China',
           children: [
             {
-              id: '1.1.1.1',
-              label: 'Child Node with long name there',
-              children: [
-                {
-                  id: '1.3',
-                  label: 'Child Node 1.3',
-                  children: [
-                    {
-                      id: '1.1.1.3',
-                      label: 'Potato',
-                      children: [
-                        {
-                          id: '1.1.1.1.4',
-                          label: 'Child Node with long name there',
-                          children: null
-                        },
-                        {
-                          id: '1.1.1.2.1',
-                          label: 'Child Node 1.1.1.2',
-                          children: null
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  id: '1.2',
-                  label: 'Child Node 1.2',
-                  children: []
-                }
-              ]
+              id: 'city-1-1-1',
+              label: 'City: Beijing',
+              children: null
             },
             {
-              id: '1.1.1.2',
-              label: 'Child Node 1.1.1.2',
+              id: 'city-1-1-2',
+              label: 'City: Shanghai',
+              children: [
+                {
+                  id: 'district-1-1-2-1',
+                  label: 'District: Pudong',
+                  children: null
+                },
+                {
+                  id: 'district-1-1-2-2',
+                  label: 'District: Huangpu',
+                  children: null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: 'country-1-2',
+          label: 'Country: Japan',
+          children: [
+            {
+              id: 'city-1-2-1',
+              label: 'City: Tokyo',
+              children: null
+            },
+            {
+              id: 'city-1-2-2',
+              label: 'City: Kyoto',
               children: null
             }
           ]
@@ -58,20 +58,102 @@ const mockTree: TreeSelectItems[] = [{
       ]
     },
     {
-      id: '1.2',
-      label: 'Child Node 1.2',
-      children: []
+      id: 'continent-2',
+      label: 'Continent: Europe',
+      expanded: true,
+      children: [
+        {
+          id: 'country-2-1',
+          label: 'Country: France',
+          children: [
+            {
+              id: 'city-2-1-1',
+              label: 'City: Paris',
+              children: null
+            }
+          ]
+        },
+        {
+          id: 'country-2-2',
+          label: 'Country: Germany',
+          children: [
+            {
+              id: 'city-2-2-1',
+              label: 'City: Berlin',
+              children: null
+            },
+            {
+              id: 'city-2-2-2',
+              label: 'City: Munich',
+              children: null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: 'continent-3',
+      label: 'Continent: North America',
+      children: [
+        {
+          id: 'country-3-1',
+          label: 'Country: United States',
+          children: [
+            {
+              id: 'state-3-1-1',
+              label: 'State: California',
+              expanded: false,
+              children: [
+                {
+                  id: 'city-3-1-1-1',
+                  label: 'City: Los Angeles',
+                  children: null
+                },
+                {
+                  id: 'city-3-1-1-2',
+                  label: 'City: San Francisco',
+                  children: null
+                }
+              ]
+            },
+            {
+              id: 'state-3-1-2',
+              label: 'State: New York',
+              children: [
+                {
+                  id: 'city-3-1-2-1',
+                  label: 'City: New York City',
+                  children: null
+                },
+                {
+                  id: 'city-3-1-2-2',
+                  label: 'City: Buffalo',
+                  children: null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: 'country-3-2',
+          label: 'Country: Canada',
+          children: [
+            {
+              id: 'province-3-2-1',
+              label: 'Province: Ontario',
+              children: null
+            },
+            {
+              id: 'province-3-2-2',
+              label: 'Province: Quebec',
+              children: null
+            }
+          ]
+        }
+      ]
     }
-  ]
-}, {
-  id: '2',
-  label: 'test',
-  expanded: true,
-  children: [{
-    id: '2.1',
-    label: 'test2',
-    children: []
-  }]
+  ],
+  expanded: true
 }];
 
 const mockProps: TreeSelectProps = {
@@ -79,7 +161,7 @@ const mockProps: TreeSelectProps = {
   onChange: (el) => {
     console.log(el);
   },
-  selectedIds: ['1.2']
+  selectedIds: []
 }
 
 // eslint-disable-next-line react/no-deprecated
