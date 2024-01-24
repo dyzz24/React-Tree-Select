@@ -1,10 +1,9 @@
-import { type BaseComponentProps, type TreeSelectItems } from '../../../types/treeSelectProps.ts';
-
 import { Actions } from '@reducer/actions.ts';
 import React from 'react';
 import styles from './label.module.pcss';
 import classNames from 'classnames';
 import { useTreeSelectContext } from '@reducer/index.ts';
+import { type BaseComponentProps, type TreeSelectItems } from '../../../types/treeSelectProps.ts';
 
 type Props = BaseComponentProps & {
   node: TreeSelectItems

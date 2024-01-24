@@ -35,17 +35,8 @@ export const prepareTree = (data: TreeSelectItems[], selectedIds?: string[]) => 
 
 export const searchTreeItem = (tree: TreeSelectItems[], searchStr: string) => {
   return tree.map(item => {
-    const deepLevel = checkFilteredDeeps(item?.children ?? [], searchStr, false);
-
-    if (deepLevel) {
-      item.expanded = true
-    } else item.expanded = false
-
-    if (item.label.toLowerCase().includes(searchStr.toLowerCase())) {
-      item.filtered = true
-    } else {
-      item.filtered = false
-    }
+    item.expanded = checkFilteredDeeps(item?.children ?? [], searchStr, false);
+    item.filtered = item.label.toLowerCase().includes(searchStr.toLowerCase());
 
     if (item?.children?.length) {
       item.children = [...searchTreeItem(item.children, searchStr)];
