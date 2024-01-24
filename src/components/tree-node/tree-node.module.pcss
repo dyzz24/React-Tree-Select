@@ -8,72 +8,71 @@
 
     &.empty {
         &:after {
-            width: 25px;
+            width: 18px;
         }
     }
 
 
     &:before {
         content: "";
-        height: 100%;
+        height: calc(100% + 1px);
         border-left: 1px solid #ccc;
         position: absolute;
-        left: 0;
+        left: 6px;
         top: 16px;
-
         width: 10px;
         transition: border 0.5s;
+        border-radius: 8px 0 0 7px;
     }
 
     &:first-child:before {
-        width: 10px;
-        top: 16px;
+        display: none;
+    }
 
+    &:first-child {
+        padding-left: 0;
     }
 
 
     &:last-child:before {
-        width: 10px;
-        height: 18px;
-        top: 0;
+        display: none;
     }
 
     &:after {
         content: "";
-        width: 14px;
+        width: 7px;
         transition: border 0.5s;
         border-top: 1px solid #ccc;
         position: absolute;
-        left: 0;
+        left: 7px;
         top: 16px;
-
         height: 20px;
+        border-radius: 7px 0 0 7px;
     }
 
     &:first-child:after {
-        height: 10px;
-
+        display: none;
     }
 
     &:last-child:after {
         height: 10px;
         border-top: none;
         border-bottom: 1px solid #ccc;
-
-        margin-top: -8px;
+        margin-top: -10px;
     }
 
     & .title:not(:only-child) {
 
         &:before {
             content: "";
-            height: calc(100% + 6px);
+            height: calc(100% + 1px);
             border-left: 1px solid #ccc;
             position: absolute;
-            left: 0;
-            top: 10px;
-            width: 8px;
+            left: 7px;
+            top: 16px;
+            width: 7px;
             transition: border 0.5s;
+            border-radius: 0 0 0 7px;
         }
     }
 }

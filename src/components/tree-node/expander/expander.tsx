@@ -13,13 +13,15 @@ type Props = {
   hasChildren: boolean
 }
 export const Expander: React.FC<Props> = ({ node, hasChildren }) => {
-  const { dispatch } = useTreeSelectContext();
+  const { dispatch, state } = useTreeSelectContext();
+
+  const isSearchMode = state.isSearchMode;
 
   const onExpandHandler = () => {
     dispatch({ type: Actions.EXPAND, id: node.id, value: !node.expanded });
   }
 
-  return <>{hasChildren && <span className={classNames(styles.expander)}
+  return <>{hasChildren && <span className={classNames(styles.expander, isSearchMode && styles.searchMode)}
                                    onClick={onExpandHandler}><span
         className={classNames(node.expanded && styles.active)}><Arrow/></span></span>}
     </>

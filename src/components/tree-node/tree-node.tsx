@@ -16,7 +16,7 @@ export const TreeNode: React.FC<{ node: TreeSelectItems }> = ({ node }) => {
 
   return <div className={classNames(styles.container, !hasChildren && styles.empty)}>
         <div className={styles.title}>
-            {!state.isSearchMode && <Expander node={node} hasChildren={!!hasChildren}/>}
+            <Expander node={node} hasChildren={!!hasChildren}/>
             <Label node={node} hasChildren={!!hasChildren}/>
         </div>
         {node?.expanded && node?.children?.map((child) =>
