@@ -172,7 +172,11 @@ const mockProps: TreeSelectProps = {
 ReactDOM.render(<React.StrictMode>
     <>
         <div id="test"></div>
-        <ReactTreeSelect {...mockProps} targetDOMId={'test'}/>
-        <ReactTreeSelect {...mockProps} hideCheckbox renderIconBefore={undefined}/>
+        <ReactTreeSelect {...mockProps} targetDOMId={'test'} selectedIds={['city-2-1-1']}/>
+        <ReactTreeSelect {...mockProps} hideCheckbox
+                         renderIconBefore={undefined}
+                         selectedIds={['city-2-1-1']}
+                         hideSelectedChildCount
+        />
     </>
 </React.StrictMode>, document.getElementById('root'))

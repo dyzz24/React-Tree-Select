@@ -1,6 +1,6 @@
 import { Actions } from './actions.ts';
 import { type State } from './state.ts';
-import { editTreeItems } from '@utils/utils.ts';
+import { editTreeItems, setHasSelectedChild } from '@utils/utils.ts';
 import { type TreeItemValues, type TreeSelectItems } from '../types/treeSelectProps.ts';
 
 export interface ReducerAction {
@@ -8,6 +8,7 @@ export interface ReducerAction {
   id: string
   value: TreeItemValues
   initState?: State
+  optionalHideSelectedChildCount?: boolean
 }
 
 export const reducer = (state: State, data: ReducerAction | ReducerAction[]) => {
@@ -28,7 +29,8 @@ export const reducer = (state: State, data: ReducerAction | ReducerAction[]) => 
       case Actions.SELECT:
         modifiedState = {
           ...modifiedState,
-          tree: editTreeItems(state.tree, actionData.id, 'selected', actionData.value),
+          tree: setHasSelectedChild(editTreeItems(state.tree, actionData.id, 'selected', actionData.value),
+            !!actionData?.optionalHideSelectedChildCount),
           selectedIds: actionData.value
             ? [...state.selectedIds, actionData.id]
             : state.selectedIds.filter((id) => id !== actionData.id),

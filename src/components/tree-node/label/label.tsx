@@ -11,18 +11,25 @@ type Props = BaseComponentProps & {
 }
 export const Label: React.FC<Props> = ({
   node, hasChildren, renderIconBefore,
-  renderIconAfter, hideCheckbox
+  renderIconAfter, hideCheckbox, hideSelectedChildCount
 }) => {
   const { dispatch, state } = useTreeSelectContext();
 
   const onSelectHandler = () => {
-    dispatch({ type: Actions.SELECT, id: node.id, value: !node.selected });
+    dispatch({
+      type: Actions.SELECT,
+      id: node.id,
+      value: !node.selected,
+      optionalHideSelectedChildCount: hideSelectedChildCount
+    });
   }
 
   const labelContent = () => <>
         {renderIconBefore && <span>{renderIconBefore}</span>}
         {node.label}
         {renderIconAfter && <span>{renderIconAfter}</span>}
+        {!hideSelectedChildCount && !!node.hasSelectedChild &&
+            <span className={styles.hasSelectedChild}>{node.hasSelectedChild}✔</span>}
     </>
 
   if (hideCheckbox) {

@@ -5,7 +5,7 @@ import { type TreeSelectProps } from './types/treeSelectProps.ts';
 import { Actions, initialState, reducer, TreeSelectProvider } from './reducer';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
-import { prepareTree } from '@utils/utils.ts';
+import { prepareTree, setHasSelectedChild } from '@utils/utils.ts';
 import { TreeSelectRoot } from '@components/tree-select-root/tree-select-root.tsx';
 
 import styles from './react-tree-select.module.pcss';
@@ -16,7 +16,7 @@ const ReactTreeSelect: React.FC<TreeSelectProps> = (props) => {
   useEffect(() => {
     if (!state.isInit && props.tree?.length) {
       const init = {
-        tree: prepareTree(props.tree, props.selectedIds ?? []),
+        tree: setHasSelectedChild(prepareTree(props.tree, props.selectedIds ?? []), !!props?.hideSelectedChildCount),
         selectedIds: props.selectedIds ?? [],
         lastAction: null,
         isInit: true

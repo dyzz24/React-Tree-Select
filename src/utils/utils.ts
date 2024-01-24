@@ -62,3 +62,32 @@ export const checkFilteredDeeps = (tree: TreeSelectItems[], searchStr: string, t
 
   return hasDeepTarget;
 };
+
+const checkSelectedDeeps = (tree: TreeSelectItems[], target: number): number => {
+  let hasDeepTarget = target;
+
+  for (let i = 0; i < tree.length; i++) {
+    const isMatch = tree[i].selected;
+    if (isMatch) {
+      hasDeepTarget += 1;
+    }
+    if (tree[i]?.children?.length) {
+      hasDeepTarget = checkSelectedDeeps(tree[i]?.children!, hasDeepTarget);
+    }
+  }
+
+  return hasDeepTarget;
+};
+
+export const setHasSelectedChild = (tree: TreeSelectItems[], hideSelectedChildCount: boolean) => {
+  if (hideSelectedChildCount) return tree;
+  return tree.map(item => {
+    item.hasSelectedChild = checkSelectedDeeps(item?.children ?? [], 0);
+
+    if (item?.children?.length) {
+      item.children = [...setHasSelectedChild(item.children, hideSelectedChildCount)];
+    }
+
+    return item;
+  })
+}
