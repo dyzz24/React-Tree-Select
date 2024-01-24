@@ -5,7 +5,7 @@
   "homepage": "https://github.com/dyzz24/React-Tree-Select",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dyzz24/React-Tree-Select.git"
+    "url": "git+https://github.com/dyzz24/React-Tree-Select.git"
   },
   "keywords": [
     "React",
@@ -15,7 +15,7 @@
     "Multiple Select",
     "package"
   ],
-  "name": "react-tree-select",
+  "name": "dyzz-react-tree-select",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -69,5 +69,8 @@
     "typescript": "^5.3.3",
     "vite": "^5.0.8",
     "vite-plugin-dts": "^3.7.1"
+  },
+  "bugs": {
+    "url": "https://github.com/dyzz24/React-Tree-Select/issues"
   }
 }
