@@ -1,5 +1,5 @@
 import React from 'react';
-import type { TreeSelectItems } from '../../types/treeSelectProps.ts';
+import { type BaseComponentProps, type TreeSelectItems } from '../../types/treeSelectProps.ts';
 
 import styles from './tree-node.module.pcss';
 
@@ -8,19 +8,22 @@ import { Expander } from '@components/tree-node/expander/expander.tsx';
 import { useTreeSelectContext } from '@reducer/index.ts';
 import classNames from 'classnames';
 
-export const TreeNode: React.FC<{ node: TreeSelectItems }> = ({ node }) => {
+type Props = BaseComponentProps & {
+  node: TreeSelectItems
+}
+export const TreeNode: React.FC<Props> = (props) => {
   const { state } = useTreeSelectContext();
 
-  const hasChildren = node?.children && node?.children?.length > 0;
-  if (state.isSearchMode && (!node.filtered && !node.expanded)) return null;
+  const hasChildren = props.node?.children && props.node?.children?.length > 0;
+  if (state.isSearchMode && (!props.node.filtered && !props.node.expanded)) return null;
 
   return <div className={classNames(styles.container, !hasChildren && styles.empty)}>
         <div className={styles.title}>
-            <Expander node={node} hasChildren={!!hasChildren}/>
-            <Label node={node} hasChildren={!!hasChildren}/>
+            <Expander node={props.node} hasChildren={!!hasChildren}/>
+            <Label hasChildren={!!hasChildren} {...props}/>
         </div>
-        {node?.expanded && node?.children?.map((child) =>
-            <TreeNode key={child.id} node={child}/>)
+        {props.node?.expanded && props.node?.children?.map((child) =>
+            <TreeNode {...props} key={child.id} node={child}/>)
         }
     </div>
 }

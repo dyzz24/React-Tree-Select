@@ -2,6 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import ReactTreeSelect from './react-tree-select.tsx'
 import type { TreeSelectItems, TreeSelectProps } from './types/treeSelectProps.ts';
+import styles from './index.module.pcss';
+
+import Logo from '../src/assets/react.svg?react'
 
 const mockTree: TreeSelectItems[] = [{
   id: 'world',
@@ -161,14 +164,15 @@ const mockProps: TreeSelectProps = {
   onChange: (el) => {
     console.log(el);
   },
-  selectedIds: []
+  selectedIds: [],
+  renderIconBefore: <div className={styles.icon}><Logo/></div>,
+  renderIconAfter: <div className={styles.iconTwo}><Logo/></div>
 }
-
 // eslint-disable-next-line react/no-deprecated
 ReactDOM.render(<React.StrictMode>
     <>
         <div id="test"></div>
         <ReactTreeSelect {...mockProps} targetDOMId={'test'}/>
-
+        <ReactTreeSelect {...mockProps} hideCheckbox renderIconBefore={undefined}/>
     </>
 </React.StrictMode>, document.getElementById('root'))

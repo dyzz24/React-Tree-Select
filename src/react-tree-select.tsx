@@ -46,7 +46,7 @@ const ReactTreeSelect: React.FC<TreeSelectProps> = (props) => {
     return ReactDOM.createPortal(
             <div className={classNames(styles.main, props.className)}>
                 <TreeSelectProvider value={{ state, dispatch }}>
-                    <TreeSelectRoot onChange={props.onChange}/>
+                    <TreeSelectRoot {...props} />
                 </TreeSelectProvider>
             </div>,
             node
