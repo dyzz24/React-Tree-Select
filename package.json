@@ -1,18 +1,18 @@
 {
-  "description": "This is a React tree select package",
+  "description": "This is a React Tree Select package",
   "author": "Dmitry Vasilkov",
   "license": "MIT",
-  "homepage": "<YOUR_SITE_URL>",
+  "homepage": "https://github.com/dyzz24/React-Tree-Select",
   "repository": {
     "type": "git",
-    "url": "https://github.com/<YOUR_USER_NAME>/my-ts-lib.git"
+    "url": "https://github.com/dyzz24/React-Tree-Select.git"
   },
   "keywords": [
-    "some",
-    "keywords",
-    "to",
-    "describe",
-    "the",
+    "React",
+    "TreeSelect",
+    "Tree",
+    "React Tree Select",
+    "Multiple Select",
     "package"
   ],
   "name": "react-tree-select",
@@ -44,6 +44,7 @@
     "vite-plugin-svgr": "^4.2.0"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.6",
     "@types/node": "^20.11.4",
     "@types/react": "^16.9.55",
     "@types/react-dom": "^16.9.9",
@@ -63,6 +64,7 @@
     "postcss-load-config": "^5.0.2",
     "postcss-nested": "^6.0.1",
     "postcss-plugin": "^1.0.0",
+    "rollup-plugin-typescript-paths": "^1.5.0",
     "sugarss": "^4.0.1",
     "typescript": "^5.3.3",
     "vite": "^5.0.8",

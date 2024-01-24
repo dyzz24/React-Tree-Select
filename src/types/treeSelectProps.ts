@@ -15,7 +15,7 @@ export type BaseComponentProps = {
   hideSelectedChildCount?: boolean // hide selected child count
 }
 
-export type RenderIconType = React.ReactNode | Element | JSX.Element;
+export type RenderIconType = React.ReactNode | Element | JSX.Element | React.ReactElement;
 
 export type onChangeCallback = (args: { selectedIds: string[], updatedTree: TreeSelectItems[] }) => void
 

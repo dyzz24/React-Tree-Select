@@ -28,7 +28,7 @@ export const Label: React.FC<Props> = ({
         {renderIconBefore && <span>{renderIconBefore}</span>}
         {node.label}
         {renderIconAfter && <span>{renderIconAfter}</span>}
-        {!hideSelectedChildCount && !!node.hasSelectedChild &&
+        {!hideSelectedChildCount && !!node?.hasSelectedChild && node.hasSelectedChild > 0 &&
             <span className={styles.hasSelectedChild}>{node.hasSelectedChild}✔</span>}
     </>
 
