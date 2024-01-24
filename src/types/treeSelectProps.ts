@@ -12,6 +12,7 @@ export type BaseComponentProps = {
   renderIconBefore?: RenderIconType // render icon before the label
   renderIconAfter?: RenderIconType // render icon after the label
   hideCheckbox?: boolean // hide checkbox
+  hideSelectedChildCount?: boolean // hide selected child count
 }
 
 export type RenderIconType = React.ReactNode | Element | JSX.Element;
@@ -25,6 +26,7 @@ export type TreeSelectItems = {
   expanded?: boolean
   selected?: boolean
   filtered?: boolean
+  hasSelectedChild?: number
 }
 
 export type TreeItemKeys = keyof TreeSelectItems;

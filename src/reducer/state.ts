@@ -1,4 +1,4 @@
-import { type TreeSelectItems } from '../types/treeSelectProps.ts';
+import { type TreeSelectItems } from '../types';
 import { type Actions } from './actions.ts';
 
 export interface State {

@@ -1,10 +1,9 @@
-import { type BaseComponentProps, type TreeSelectItems } from '../../../types/treeSelectProps.ts';
-
 import { Actions } from '@reducer/actions.ts';
 import React from 'react';
 import styles from './label.module.pcss';
 import classNames from 'classnames';
 import { useTreeSelectContext } from '@reducer/index.ts';
+import { type BaseComponentProps, type TreeSelectItems } from '../../../types/treeSelectProps.ts';
 
 type Props = BaseComponentProps & {
   node: TreeSelectItems
@@ -12,18 +11,25 @@ type Props = BaseComponentProps & {
 }
 export const Label: React.FC<Props> = ({
   node, hasChildren, renderIconBefore,
-  renderIconAfter, hideCheckbox
+  renderIconAfter, hideCheckbox, hideSelectedChildCount
 }) => {
   const { dispatch, state } = useTreeSelectContext();
 
   const onSelectHandler = () => {
-    dispatch({ type: Actions.SELECT, id: node.id, value: !node.selected });
+    dispatch({
+      type: Actions.SELECT,
+      id: node.id,
+      value: !node.selected,
+      optionalHideSelectedChildCount: hideSelectedChildCount
+    });
   }
 
   const labelContent = () => <>
         {renderIconBefore && <span>{renderIconBefore}</span>}
         {node.label}
         {renderIconAfter && <span>{renderIconAfter}</span>}
+        {!hideSelectedChildCount && !!node.hasSelectedChild &&
+            <span className={styles.hasSelectedChild}>{node.hasSelectedChild}✔</span>}
     </>
 
   if (hideCheckbox) {

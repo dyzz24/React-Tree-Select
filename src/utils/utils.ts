@@ -35,17 +35,8 @@ export const prepareTree = (data: TreeSelectItems[], selectedIds?: string[]) => 
 
 export const searchTreeItem = (tree: TreeSelectItems[], searchStr: string) => {
   return tree.map(item => {
-    const deepLevel = checkFilteredDeeps(item?.children ?? [], searchStr, false);
-
-    if (deepLevel) {
-      item.expanded = true
-    } else item.expanded = false
-
-    if (item.label.toLowerCase().includes(searchStr.toLowerCase())) {
-      item.filtered = true
-    } else {
-      item.filtered = false
-    }
+    item.expanded = checkFilteredDeeps(item?.children ?? [], searchStr, false);
+    item.filtered = item.label.toLowerCase().includes(searchStr.toLowerCase());
 
     if (item?.children?.length) {
       item.children = [...searchTreeItem(item.children, searchStr)];
@@ -71,3 +62,32 @@ export const checkFilteredDeeps = (tree: TreeSelectItems[], searchStr: string, t
 
   return hasDeepTarget;
 };
+
+const checkSelectedDeeps = (tree: TreeSelectItems[], target: number): number => {
+  let hasDeepTarget = target;
+
+  for (let i = 0; i < tree.length; i++) {
+    const isMatch = tree[i].selected;
+    if (isMatch) {
+      hasDeepTarget += 1;
+    }
+    if (tree[i]?.children?.length) {
+      hasDeepTarget = checkSelectedDeeps(tree[i]?.children!, hasDeepTarget);
+    }
+  }
+
+  return hasDeepTarget;
+};
+
+export const setHasSelectedChild = (tree: TreeSelectItems[], hideSelectedChildCount: boolean) => {
+  if (hideSelectedChildCount) return tree;
+  return tree.map(item => {
+    item.hasSelectedChild = checkSelectedDeeps(item?.children ?? [], 0);
+
+    if (item?.children?.length) {
+      item.children = [...setHasSelectedChild(item.children, hideSelectedChildCount)];
+    }
+
+    return item;
+  })
+}
