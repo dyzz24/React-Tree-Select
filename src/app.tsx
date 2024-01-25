@@ -5,6 +5,7 @@ import styles from './index.module.pcss';
 
 import Logo from '../src/assets/react.svg?react'
 import { type TreeSelectItems, type TreeSelectProps } from './types';
+
 import { ReactTreeSelect } from './react-tree-select.tsx';
 
 const mockTree: TreeSelectItems[] = [{
