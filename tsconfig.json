@@ -12,6 +12,7 @@
       ]
     },
     "module": "esnext",
+    "allowJs": false,
     "target": "ESNext",
     "moduleResolution": "Node",
     "useDefineForClassFields": true,

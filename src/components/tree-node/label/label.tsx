@@ -25,10 +25,10 @@ export const Label: React.FC<Props> = ({
   }
 
   const labelContent = () => <>
-        {renderIconBefore && <span>{renderIconBefore}</span>}
+        {renderIconBefore && <span className={styles.labelChild}>{renderIconBefore}</span>}
         {node.label}
-        {renderIconAfter && <span>{renderIconAfter}</span>}
-        {!hideSelectedChildCount && !!node.hasSelectedChild &&
+        {renderIconAfter && <span className={styles.labelChild}>{renderIconAfter}</span>}
+        {!hideSelectedChildCount && !!node?.hasSelectedChild && node.hasSelectedChild > 0 &&
             <span className={styles.hasSelectedChild}>{node.hasSelectedChild}✔</span>}
     </>
 
