@@ -4,15 +4,16 @@
     cursor: pointer;
     user-select: none;
     width: 100%;
-    border-radius: 4px;
-    padding: 0 4px;
-    margin-left: 8px;
-    gap: 0 4px;
+    border-radius: var(--tree-default-border-radius);
+    padding: 0 var(--tree-min-space);
+    margin-left: var(--tree-space);
+    gap: 0 var(--tree-min-space);
     box-sizing: border-box;
     position: relative;
+    color: var(--tree-default-label-color);
 
     &:hover {
-        background-color: rgba(128, 128, 128, 0.25);
+        background-color: var(--tree-label-hover-color);
     }
 
     input {
@@ -20,22 +21,27 @@
     }
 
     &.active {
-        background-color: rgba(121, 255, 100, 0.2);
-        border-radius: 2px;
+        background-color: var(--tree-active-label-color);
+        border-radius: var(--tree-default-border-radius);
     }
 
     &.target {
         font-weight: bold;
-        border-radius: 2px;
+        border-radius: var(--tree-default-border-radius);
     }
 
     &.hasChildren {
-        color: #747bff;
-        margin-left: 4px;
+        color: var(--tree-label-blue-color);
+        margin-left: var(--tree-min-space);
     }
 }
 
 .hasSelectedChild {
     font-size: 12px;
     margin-left: auto;
+}
+
+.labelChild {
+    max-width: 20px;
+    max-height: 20px;
 }

@@ -8,6 +8,8 @@ import classNames from 'classnames';
 import { prepareTree, setHasSelectedChild } from '@utils/utils.ts';
 import { TreeSelectRoot } from '@components/tree-select-root/tree-select-root.tsx';
 
+import './styles.pcss';
+
 import styles from './react-tree-select.module.pcss';
 
 export const ReactTreeSelect: React.FC<TreeSelectProps> = (props) => {

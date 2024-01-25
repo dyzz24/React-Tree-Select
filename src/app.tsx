@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-// import type { TreeSelectItems, TreeSelectProps } from './types';
 import styles from './index.module.pcss';
 
 import Logo from '../src/assets/react.svg?react'
