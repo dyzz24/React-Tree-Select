@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect, useReducer, useState } from 'react'
 
-import { type TreeSelectProps } from './types/treeSelectProps.ts';
+import { type TreeSelectProps } from './types';
 
 import { Actions, initialState, reducer, TreeSelectProvider } from './reducer';
 import ReactDOM from 'react-dom';
@@ -10,7 +10,7 @@ import { TreeSelectRoot } from '@components/tree-select-root/tree-select-root.ts
 
 import styles from './react-tree-select.module.pcss';
 
-const ReactTreeSelect: React.FC<TreeSelectProps> = (props) => {
+export const ReactTreeSelect: React.FC<TreeSelectProps> = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
@@ -53,4 +53,3 @@ const ReactTreeSelect: React.FC<TreeSelectProps> = (props) => {
     );
   } else return null;
 }
-export default ReactTreeSelect
