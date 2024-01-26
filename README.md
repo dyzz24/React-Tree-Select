@@ -49,7 +49,8 @@ The React Tree Select component accepts the following props:
 
 Here is an example of how to use the React Tree Select component:
 
-`import React from 'react'
+```
+import React from 'react'
 import ReactDOM from 'react-dom'
 import { ReactTreeSelect } from './react-tree-select.tsx';
 import { type TreeSelectItems, type TreeSelectProps } from './types';
@@ -81,16 +82,18 @@ ReactDOM.render(
 </React.StrictMode>,
 document.getElementById('root')
 );
-`
+```
 
 I'm not designer sorry :) but you can reassign colors using CSS variables like these:
 
-`--tree-label-hover-color: rgba(0, 0, 0, 0.1);
+```
+--tree-label-hover-color: rgba(0, 0, 0, 0.1);
 --tree-label-blue-color: #747bff;
 --tree-borders-color: #E0E0E0;
 --tree-input-hover: #9FA8DA;
 --tree-active-label-color: rgba(76, 175, 80, 0.1);
---tree-default-label-color: #212121;`
+--tree-default-label-color: #212121;
+```
 
 In this example, mockTree is the hierarchical data that you want to display, and mockProps are the props that you pass
 to the React Tree Select component. The onChange prop is a function that logs the selected items when they change. The
