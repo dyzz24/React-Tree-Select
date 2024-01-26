@@ -23,7 +23,6 @@ export const Label: React.FC<Props> = ({
       optionalHideSelectedChildCount: hideSelectedChildCount
     });
   }
-
   const labelContent = () => <>
         {renderIconBefore && <span className={styles.labelChild}>{renderIconBefore}</span>}
         {node.label}
