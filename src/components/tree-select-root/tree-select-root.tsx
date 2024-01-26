@@ -44,7 +44,7 @@ export const TreeSelectRoot: React.FC<Props> = (props) => {
   }
 
   return <div className={styles.rootContainer}>
-        <input className={styles.searchInput} onChange={onChange}/>
+        {!props.hideSearchInput && <input className={styles.searchInput} onChange={onChange}/>}
         <div className={styles.treeRender}>
             {state?.tree.map(el => <TreeNode node={el} key={el.id} {...props}/>)}
         </div>

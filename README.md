@@ -93,6 +93,7 @@ I'm not designer sorry :) but you can reassign colors using CSS variables like t
 --tree-input-hover: #9FA8DA;
 --tree-active-label-color: rgba(76, 175, 80, 0.1);
 --tree-default-label-color: #212121;
+--tree-empty-background: rgba(63, 61, 61, 0.6);
 ```
 
 In this example, mockTree is the hierarchical data that you want to display, and mockProps are the props that you pass

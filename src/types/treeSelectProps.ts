@@ -13,6 +13,7 @@ export type BaseComponentProps = {
   renderIconAfter?: RenderIconType // render icon after the label
   hideCheckbox?: boolean // hide checkbox
   hideSelectedChildCount?: boolean // hide selected child count
+  hideSearchInput?: boolean // hide search input
 }
 
 export type RenderIconType = React.ReactNode | Element | JSX.Element | React.ReactElement;
