@@ -1,9 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
-import styles from './index.module.pcss';
-
-import Logo from '../src/assets/react.svg?react'
 import { type TreeSelectItems, type TreeSelectProps } from './types';
 
 import { ReactTreeSelect } from './react-tree-select.tsx';
@@ -166,9 +162,7 @@ const mockProps: TreeSelectProps = {
   onChange: (el) => {
     console.log(el);
   },
-  selectedIds: [],
-  renderIconBefore: <div className={styles.icon}><Logo/></div>,
-  renderIconAfter: <div className={styles.iconTwo}><Logo/></div>
+  selectedIds: []
 }
 // eslint-disable-next-line react/no-deprecated
 ReactDOM.render(<React.StrictMode>
