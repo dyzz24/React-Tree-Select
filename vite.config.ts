@@ -23,6 +23,7 @@ export default defineConfig({
     manifest: true,
     minify: true,
     reportCompressedSize: true,
+    cssMinify: true,
     lib: {
       entry: resolve(__dirname, 'src/index.tsx'),
       name: 'react-tree-select',

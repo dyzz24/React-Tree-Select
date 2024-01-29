@@ -6,7 +6,7 @@ import { Actions } from '@reducer/actions.ts';
 import { useTreeSelectContext } from '@reducer/index.ts';
 import { TreeNode } from '@components/tree-node/tree-node.tsx';
 import { searchTreeItem } from '@utils/utils.ts';
-import { type BaseComponentProps, type onChangeCallback } from '../../types';
+import { BaseComponentProps, onChangeCallback } from '../../types';
 
 type Props = BaseComponentProps & {
   onChange: onChangeCallback

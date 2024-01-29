@@ -53,7 +53,7 @@ Here is an example of how to use the React Tree Select component:
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { ReactTreeSelect } from './react-tree-select.tsx';
-import { type TreeSelectItems, type TreeSelectProps } from './types';
+import { TreeSelectItems, TreeSelectProps } from './types';
 
 const mockTree:TreeSelectItems[] = [{
 id: 'world',

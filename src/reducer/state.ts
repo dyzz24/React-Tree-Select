@@ -1,5 +1,5 @@
-import { type TreeSelectItems } from '../types';
-import { type Actions } from './actions.ts';
+import { TreeSelectItems } from '../types';
+import { Actions } from './actions.ts';
 
 export interface State {
   tree: TreeSelectItems[]

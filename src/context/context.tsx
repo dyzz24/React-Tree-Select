@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { type State } from '@reducer/state.ts';
-import { type ReducerAction } from '@reducer/reducer.ts';
+import { State } from '@reducer/state.ts';
+import { ReducerAction } from '@reducer/reducer.ts';
 
 /** Creates new React.Context in passed Generic type */
 export const createGenericContext = <T, >() => {

@@ -6,7 +6,7 @@ import { Label } from '@components/tree-node/label/label.tsx';
 import { Expander } from '@components/tree-node/expander/expander.tsx';
 import { useTreeSelectContext } from '@reducer/index.ts';
 import classNames from 'classnames';
-import { type BaseComponentProps, type TreeSelectItems } from '../../types';
+import { BaseComponentProps, TreeSelectItems } from '../../types';
 
 type Props = BaseComponentProps & {
   node: TreeSelectItems

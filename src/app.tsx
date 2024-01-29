@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { type TreeSelectItems, type TreeSelectProps } from './types';
+import { TreeSelectItems, TreeSelectProps } from './types';
 
 import { ReactTreeSelect } from './react-tree-select.tsx';
 

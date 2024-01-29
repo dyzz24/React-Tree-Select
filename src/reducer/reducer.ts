@@ -1,7 +1,7 @@
 import { Actions } from './actions.ts';
-import { type State } from './state.ts';
+import { State } from './state.ts';
 import { editTreeItems, setHasSelectedChild } from '@utils/utils.ts';
-import { type TreeItemValues, type TreeSelectItems } from '../types';
+import { TreeItemValues, TreeSelectItems } from '../types';
 
 export interface ReducerAction {
   type: Actions

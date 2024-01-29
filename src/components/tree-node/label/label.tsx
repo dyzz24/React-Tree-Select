@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './label.module.pcss';
 import classNames from 'classnames';
 import { useTreeSelectContext } from '@reducer/index.ts';
-import { type BaseComponentProps, type TreeSelectItems } from '../../../types';
+import { BaseComponentProps, TreeSelectItems } from '../../../types';
 
 type Props = BaseComponentProps & {
   node: TreeSelectItems

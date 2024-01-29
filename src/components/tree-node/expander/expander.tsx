@@ -1,4 +1,4 @@
-import { type TreeSelectItems } from '../../../types';
+import { TreeSelectItems } from '../../../types';
 
 import { Actions } from '@reducer/actions.ts';
 import React from 'react';
