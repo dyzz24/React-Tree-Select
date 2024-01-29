@@ -41,7 +41,7 @@ The React Tree Select component accepts the following props:
 2. selectedIds: An array of the id values of the items that should be selected by default.
 3. renderIconBefore: A React element that will be rendered before the item label.
 4. renderIconAfter: A React element that will be rendered after the item label.
-5. targetDOMId: The id of the DOM element where the component will be rendered.
+5. targetNodeId: The id of the DOM element where the component will be rendered.
 6. hideCheckbox: A boolean that determines whether the checkboxes should be hidden or not.
 7. hideSelectedChildCount: A boolean that determines whether the count of selected child items should be hidden or not.
 
@@ -78,7 +78,9 @@ renderIconAfter: <div>Icon After</div>
 
 ReactDOM.render(
 <React.StrictMode>
-<ReactTreeSelect {...mockProps} targetDOMId={'test'} selectedIds={['city-2-1-1']}/>
+// dom element where component will be rendered
+<div id={'TreeSelect'}></div>
+<ReactTreeSelect {...mockProps} targetNodeId={'TreeSelect'} selectedIds={['city-2-1-1']}/>
 </React.StrictMode>,
 document.getElementById('root')
 );

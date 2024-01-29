@@ -162,13 +162,14 @@ const mockProps: TreeSelectProps = {
   onChange: (el) => {
     console.log(el);
   },
-  selectedIds: []
+  selectedIds: [],
+  targetNodeId: 'test'
 }
 // eslint-disable-next-line react/no-deprecated
 ReactDOM.render(<React.StrictMode>
     <>
         <div id="test"></div>
-        <ReactTreeSelect {...mockProps} targetDOMId={'test'} selectedIds={['city-2-1-1']}/>
+        <ReactTreeSelect {...mockProps} targetNodeId={'test'} selectedIds={['city-2-1-1']}/>
         <ReactTreeSelect {...mockProps} hideCheckbox
                          renderIconBefore={undefined}
                          selectedIds={['city-2-1-1']}

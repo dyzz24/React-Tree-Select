@@ -23,7 +23,6 @@ export const TreeSelectRoot: React.FC<Props> = (props) => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value) {
       const editedTree = searchTreeItem(state.tree, e.target.value);
-      console.log(editedTree)
       dispatch([{ type: Actions.SET_TREE, id: '', value: editedTree },
         {
           type: Actions.SET_SEARCH_MODE,

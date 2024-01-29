@@ -5,7 +5,7 @@ export type TreeSelectProps = BaseComponentProps & {
   selectedIds?: string[] // Array of selected item ids
   onChange: onChangeCallback // Callback function to handle changes
   className?: string // Class name to be applied to the component
-  targetDOMId?: string // id of the target element to be used for positioning portal
+  targetNodeId?: string // id of the target element to be used for positioning portal with TreeSelect content
 }
 
 export type BaseComponentProps = {

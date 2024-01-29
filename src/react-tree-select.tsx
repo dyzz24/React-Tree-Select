@@ -29,7 +29,7 @@ export const ReactTreeSelect: React.FC<TreeSelectProps> = (props) => {
   const [node, setNode] = useState<Element | null>(null);
 
   const createContainer = () => {
-    const target = props.targetDOMId ?? 'tree-select-container';
+    const target = props.targetNodeId ?? 'tree-select-container';
     const node = document.getElementById(target);
     if (!node) {
       const containerDomNode = document.createElement('div') as Element;
