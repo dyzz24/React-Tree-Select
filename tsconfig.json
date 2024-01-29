@@ -13,9 +13,10 @@
     },
     "module": "esnext",
     "allowJs": false,
-    "target": "ESNext",
+    "target": "ES2015",
     "moduleResolution": "Node",
     "useDefineForClassFields": true,
+    "skipDefaultLibCheck": true,
     "lib": [
       "ES2020",
       "DOM",
@@ -24,7 +25,7 @@
     "skipLibCheck": true,
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "noEmit": true,
     "jsx": "react",
     /* Linting */
@@ -39,6 +40,10 @@
     "vite.config.ts",
     ".eslintrc.cjs",
     "postcss.config.cjs"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
   ],
   "references": [
     {

@@ -1,4 +1,4 @@
-import type { TreeItemKeys, TreeItemValues, TreeSelectItems } from '../types/treeSelectProps.ts';
+import { type TreeItemKeys, type TreeItemValues, type TreeSelectItems } from '../types';
 
 export const editTreeItems = (data: TreeSelectItems[], targetId: string, key: TreeItemKeys, value: TreeItemValues) => {
   return data.map((item) => {

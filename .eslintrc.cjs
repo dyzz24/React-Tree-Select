@@ -39,7 +39,9 @@ module.exports = {
         "semi": "off",
         "@typescript-eslint/semi": "off",
         "@typescript-eslint/strict-boolean-expressions": "off",
-        "@typescript-eslint/consistent-type-definitions": "off"
+        "@typescript-eslint/consistent-type-definitions": "off",
+        "@typescript-eslint/consistent-type-exports": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
 
     }
 }
