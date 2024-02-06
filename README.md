@@ -57,7 +57,7 @@ The React Tree Select component accepts the following props:
     }, 1500);
     });
 
-   const asyncSearchCallback = async () => await mockApiCall()
+   const asyncSearchCallback = async (e: string) => await mockApiCall()
 ```
 
 ______________

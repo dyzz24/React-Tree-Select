@@ -50,7 +50,7 @@ export const TreeSelectRoot: React.FC<Props> = (props) => {
   const onChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (isAsyncSearch) {
       setLoading(true);
-      const result = await props.asyncSearchCallback!();
+      const result = await props.asyncSearchCallback!(e.target.value);
       handleChange(e.target.value, result || [])
       setLoading(false);
     } else handleChange(e.target.value, state.tree);

@@ -15,7 +15,7 @@ export type BaseComponentProps = {
   hideCheckbox?: boolean // hide checkbox
   hideSelectedChildCount?: boolean // hide selected child count
   hideSearchInput?: boolean // hide search input
-  asyncSearchCallback?: () => Promise<TreeSelectItems[]> // async search callback
+  asyncSearchCallback?: (e: string) => Promise<TreeSelectItems[]> // async search callback
 }
 
 export type RenderIconType = React.ReactNode | Element | JSX.Element | React.ReactElement;

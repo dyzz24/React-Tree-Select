@@ -172,8 +172,10 @@ const mockApiCall = async (): Promise<TreeSelectItems[]> => await new Promise((r
   }, 1500);
 });
 
-const asyncSearchCallback = async () =>
-  await mockApiCall();
+const asyncSearchCallback = async (e: string) => {
+  console.log(e)
+  return await mockApiCall();
+}
 
 // eslint-disable-next-line react/no-deprecated
 ReactDOM.render(<React.StrictMode>
