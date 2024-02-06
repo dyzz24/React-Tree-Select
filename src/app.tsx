@@ -165,6 +165,16 @@ const mockProps: TreeSelectProps = {
   selectedIds: [],
   targetNodeId: 'test'
 }
+
+const mockApiCall = async (): Promise<TreeSelectItems[]> => await new Promise((resolve) => {
+  setTimeout(() => {
+    resolve(mockTree);
+  }, 1500);
+});
+
+const asyncSearchCallback = async () =>
+  await mockApiCall();
+
 // eslint-disable-next-line react/no-deprecated
 ReactDOM.render(<React.StrictMode>
     <>
@@ -174,6 +184,7 @@ ReactDOM.render(<React.StrictMode>
                          renderIconBefore={undefined}
                          selectedIds={['city-2-1-1']}
                          hideSelectedChildCount
+                         asyncSearchCallback={asyncSearchCallback}
         />
     </>
 </React.StrictMode>, document.getElementById('root'))

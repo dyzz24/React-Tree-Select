@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 
 import styles from './tree-select-root.module.pcss';
-
+import { debounce } from 'lodash';
 import { Actions } from '@reducer/actions.ts';
 import { useTreeSelectContext } from '@reducer/index.ts';
 import { TreeNode } from '@components/tree-node/tree-node.tsx';
 import { searchTreeItem } from '@utils/utils.ts';
-import { BaseComponentProps, onChangeCallback } from '../../types';
+import { BaseComponentProps, onChangeCallback, TreeSelectItems } from '../../types';
 
 type Props = BaseComponentProps & {
   onChange: onChangeCallback
@@ -15,6 +15,7 @@ type Props = BaseComponentProps & {
 export const TreeSelectRoot: React.FC<Props> = (props) => {
   const { state, dispatch } = useTreeSelectContext();
   const [loading, setLoading] = React.useState(props.loading ?? false);
+  const isAsyncSearch = props?.asyncSearchCallback !== undefined;
 
   useEffect(() => {
     if (props?.loading !== undefined) setLoading(props.loading);
@@ -26,9 +27,9 @@ export const TreeSelectRoot: React.FC<Props> = (props) => {
     }
   }, [state]);
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value) {
-      const editedTree = searchTreeItem(state.tree, e.target.value);
+  const handleChange = (searchStr: string, tree: TreeSelectItems[]) => {
+    if (searchStr) {
+      const editedTree = searchTreeItem(tree, searchStr);
       dispatch([{ type: Actions.SET_TREE, id: '', value: editedTree },
         {
           type: Actions.SET_SEARCH_MODE,
@@ -45,7 +46,17 @@ export const TreeSelectRoot: React.FC<Props> = (props) => {
         }
       ]);
     }
+  };
+  const onChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (isAsyncSearch) {
+      setLoading(true);
+      const result = await props.asyncSearchCallback!();
+      handleChange(e.target.value, result || [])
+      setLoading(false);
+    } else handleChange(e.target.value, state.tree);
   }
+
+  const onChangeCallback = isAsyncSearch ? debounce(onChange, 600) : onChange;
 
   const renderContent = () => loading
     ? <div className={styles.spinnerWrapper}>
@@ -56,7 +67,7 @@ export const TreeSelectRoot: React.FC<Props> = (props) => {
     : state?.tree.map(el => <TreeNode node={el} key={el.id} {...props}/>)
 
   return <div className={styles.rootContainer}>
-        {!props.hideSearchInput && <input className={styles.searchInput} onChange={onChange}/>}
+        {!props.hideSearchInput && <input className={styles.searchInput} onChange={onChangeCallback}/>}
         <div className={styles.treeRender}>
             {renderContent()}
         </div>

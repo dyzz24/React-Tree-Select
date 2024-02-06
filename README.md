@@ -25,6 +25,7 @@ import { ReactTreeSelect } from './react-tree-select.tsx';
 
 ![img_3.png](img_3.png)
 
+_______________
 **Props**
 
 The React Tree Select component accepts the following props:
@@ -46,7 +47,22 @@ The React Tree Select component accepts the following props:
 7. hideSelectedChildCount: (optional) A boolean that determines whether the count of selected child items should be
    hidden or not.
 8. loading: (optional) boolean - loading tree state
-   **Usage**
+9. asyncSearchCallback: (optional) is a function that is used for asynchronous search operations in the ReactTreeSelect
+   component. This function is expected to return a Promise that resolves to an array of TreeSelectItems:
+
+```
+    const mockApiCall = async (): Promise<TreeSelectItems[]> => await new Promise((resolve) => {
+    setTimeout(() => {
+    resolve(mockTree);
+    }, 1500);
+    });
+
+   const asyncSearchCallback = async () => await mockApiCall()
+```
+
+______________
+
+**Usage**
 
 Here is an example of how to use the React Tree Select component:
 
