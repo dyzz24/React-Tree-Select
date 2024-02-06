@@ -10,9 +10,15 @@ import { BaseComponentProps, onChangeCallback } from '../../types';
 
 type Props = BaseComponentProps & {
   onChange: onChangeCallback
+  loading?: boolean
 }
 export const TreeSelectRoot: React.FC<Props> = (props) => {
   const { state, dispatch } = useTreeSelectContext();
+  const [loading, setLoading] = React.useState(props.loading ?? false);
+
+  useEffect(() => {
+    if (props?.loading !== undefined) setLoading(props.loading);
+  }, [props?.loading])
 
   useEffect(() => {
     if (state.lastAction === Actions.SELECT || state.lastAction === Actions.UNSELECT) {
@@ -41,10 +47,18 @@ export const TreeSelectRoot: React.FC<Props> = (props) => {
     }
   }
 
+  const renderContent = () => loading
+    ? <div className={styles.spinnerWrapper}>
+            <svg className={styles.spinner} viewBox="0 0 50 50">
+                <circle className="path" cx="25" cy="25" r="20" fill="none" strokeWidth="5"></circle>
+            </svg>
+        </div>
+    : state?.tree.map(el => <TreeNode node={el} key={el.id} {...props}/>)
+
   return <div className={styles.rootContainer}>
         {!props.hideSearchInput && <input className={styles.searchInput} onChange={onChange}/>}
         <div className={styles.treeRender}>
-            {state?.tree.map(el => <TreeNode node={el} key={el.id} {...props}/>)}
+            {renderContent()}
         </div>
     </div>
 }

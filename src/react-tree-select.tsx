@@ -13,7 +13,6 @@ import { TreeSelectProps } from './types';
 
 export const ReactTreeSelect: React.FC<TreeSelectProps> = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
   useEffect(() => {
     if (!state.isInit && props.tree?.length) {
       const init = {

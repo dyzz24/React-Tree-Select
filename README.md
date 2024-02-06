@@ -38,14 +38,15 @@ The React Tree Select component accepts the following props:
 *     expanded: A boolean that determines whether the child items of the current item are visible or not.
 
 1. onChange: A function that is called when the selected items change. It receives the selected items as its argument.
-2. selectedIds: An array of the id values of the items that should be selected by default.
-3. renderIconBefore: A React element that will be rendered before the item label.
-4. renderIconAfter: A React element that will be rendered after the item label.
-5. targetNodeId: The id of the DOM element where the component will be rendered.
-6. hideCheckbox: A boolean that determines whether the checkboxes should be hidden or not.
-7. hideSelectedChildCount: A boolean that determines whether the count of selected child items should be hidden or not.
-
-**Usage**
+2. selectedIds: (optional) An array of the id values of the items that should be selected by default.
+3. renderIconBefore: (optional) A React element that will be rendered before the item label.
+4. renderIconAfter: (optional) A React element that will be rendered after the item label.
+5. targetNodeId: (optional) The id of the DOM element where the component will be rendered.
+6. hideCheckbox: (optional) A boolean that determines whether the checkboxes should be hidden or not.
+7. hideSelectedChildCount: (optional) A boolean that determines whether the count of selected child items should be
+   hidden or not.
+8. loading: (optional) boolean - loading tree state
+   **Usage**
 
 Here is an example of how to use the React Tree Select component:
 

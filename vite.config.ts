@@ -28,7 +28,7 @@ export default defineConfig({
       entry: resolve(__dirname, 'src/index.tsx'),
       name: 'react-tree-select',
       fileName: 'react-tree-select',
-      formats: ['es', 'umd']
+      formats: ['es']
     },
     rollupOptions: {
       external: [...Object.keys(packageJson.peerDependencies)],
